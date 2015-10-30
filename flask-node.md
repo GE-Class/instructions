@@ -1,6 +1,6 @@
-# Communication between Node & Flask
+# Communication between Express & Flask
 
-## Node.js
+## Express.js
 
 * Create a route in Express
 * Load the `request` library
