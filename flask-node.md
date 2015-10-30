@@ -39,3 +39,19 @@ def money(id):
 if __name__ == "__main__":
     app.run(debug=True, host='0.0.0.0')
 ```
+
+* Create `user.py`, will be used to talk to the Postgres database
+
+```py
+import psycopg2
+
+class User:
+    def money(id):
+        conn = psycopg2.connect("dbname=ge_sales_dev user=postgres password=chyld host=127.0.0.1")
+        cur = conn.cursor()
+        cur.execute('SELECT * FROM "Sales" where user_id = ' + id + ';')
+        data = cur.fetchall()
+        cur.close()
+        conn.close()
+        return data
+```
