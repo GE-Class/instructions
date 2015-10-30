@@ -17,3 +17,25 @@ app.get('/users', function(req, res){
 });
 ```
 
+## Flask
+
+* Install Flask `pip install flask`
+* Install Postgres library `pip install psycopg2` or `conda install psycopg2`
+* Create a `main.py` file
+
+```py
+from flask import Flask, request, json, jsonify
+app = Flask(__name__)
+
+import sys
+sys.path.append('.')
+from user import User
+
+@app.route("/users/<id>", methods=['GET'])
+def money(id):
+    rows = User.money(id)
+    return jsonify(rows=rows)
+
+if __name__ == "__main__":
+    app.run(debug=True, host='0.0.0.0')
+```
